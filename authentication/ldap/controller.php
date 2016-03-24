@@ -178,10 +178,10 @@ class Controller extends AuthenticationTypeController {
     }
 
     if (Config::get('concrete.user.registration.email_registration')) {
-      $userInfo = UserInfo::getByUserName($uName);
+      $userInfo = UserInfo::getByEmail($uName);
     }
     else {
-      $userInfo = UserInfo::getByEmail($uName);
+      $userInfo = UserInfo::getByUserName($uName);
     }
     if (!is_object($userInfo)) {
       if (Config::get('auth.ldap.allowRegistration',false)) {
